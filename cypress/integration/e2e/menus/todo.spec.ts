@@ -1,4 +1,4 @@
-describe('添加引用', () => {
+describe('添加todo', () => {
     beforeEach(() => {
         cy.visit('/examples/index.html')
 
@@ -9,7 +9,7 @@ describe('添加引用', () => {
 
     const text = 'text1234'
 
-    it('点击todo菜单插入引用样式', () => {
+    it('点击todo菜单插入todo样式', () => {
         cy.get('@Editable').type(text)
         cy.get('@Editable').contains(text)
 

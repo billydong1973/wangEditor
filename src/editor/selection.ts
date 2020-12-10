@@ -265,6 +265,7 @@ class SelectionAndRange {
                 }
             }
         }
+        //  如果position变量存在取positon,position不存在取默认的len
         let pos: number = position || position === 0 ? position : len
         if (!range) {
             return

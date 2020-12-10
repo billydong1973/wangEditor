@@ -35,16 +35,14 @@ function bindEvent(editor: Editor) {
             const todo = createTodo($(newNode))
             const $inputcontainer = todo.getInputContainer()
             const $newTodo = todo.getTodo()
+            const contentSection = $inputcontainer.getNode().nextSibling
             // 处理光标在最前面时回车input不显示的问题
             if ($li?.text() === '') {
                 $li?.append($(`<br>`))
             }
             $newTodo.insertAfter($topSelectElem)
             // 处理在google中光标在最后面的，input不显示的问题(必须插入之后移动光标)
-            if (
-                !$inputcontainer.getNode().nextSibling ||
-                $inputcontainer.getNode().nextSibling?.textContent === ''
-            ) {
+            if (!contentSection || contentSection?.textContent === '') {
                 // 防止多个br出现的情况
                 if ($inputcontainer.getNode().nextSibling?.nodeName !== 'BR') {
                     const $br = $(`<br>`)
